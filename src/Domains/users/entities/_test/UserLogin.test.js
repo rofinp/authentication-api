@@ -23,4 +23,20 @@ describe('UserLogin entity', () => {
     expect(() => new UserLogin(loginData))
       .toThrow('USER_LOGIN.INVALID_DATA_TYPE');
   });
+
+  test('it should create a UserLogin object correctly', () => {
+    // Arrange
+    const loginData = {
+      username: 'ayamjago',
+      password: 'secretpassword',
+    };
+
+    // Action
+    const loginAction = new UserLogin(loginData);
+
+    // Assert
+    expect(loginAction).toBeInstanceOf(UserLogin);
+    expect(loginAction).toHaveProperty('username', loginData.username);
+    expect(loginAction).toHaveProperty('password', loginData.password);
+  });
 });
