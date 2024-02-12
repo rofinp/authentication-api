@@ -1,13 +1,13 @@
 class RegisterUser {
   constructor(userData) {
-    RegisterUser.verifyUserData(userData);
+    this.verifyUserData(userData);
 
     this.username = userData.username;
     this.password = userData.password;
     this.fullname = userData.fullname;
   }
 
-  static verifyUserData({ username, password, fullname }) {
+  verifyUserData({ username, password, fullname }) {
     if (!username || !password || !fullname) {
       throw new Error('REGISTER_USER.MISSING_REQUIRED_PROPERTY');
     }

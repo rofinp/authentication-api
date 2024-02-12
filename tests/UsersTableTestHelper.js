@@ -2,20 +2,16 @@
 const pool = require('../src/Infrastructures/database/postgres/pool');
 
 const UsersTableTestHelper = {
-  addUser: async ({
-    id = 'user-123',
-    username = 'ayamjago',
-    password = 'secretpassword',
-    fullname = 'John Doe',
-  }) => {
+  async addUser({
+    id = 'user-123', username = 'ayamjago', password = 'secretpassword', fullname = 'John Doe',
+  }) {
     await pool.query({
-      text: `INSERT INTO users (id, username, password, fullname)
-             VALUES ($1, $2, $3, $4)`,
+      text: 'INSERT INTO users VALUES($1, $2, $3, $4)',
       values: [id, username, password, fullname],
     });
   },
 
-  findUserById: async (id) => {
+  async findUserById(id) {
     const result = await pool.query({
       text: 'SELECT * FROM users WHERE id = $1',
       values: [id],
@@ -23,7 +19,7 @@ const UsersTableTestHelper = {
     return result.rows[0];
   },
 
-  cleanTable: async () => {
+  async cleanTable() {
     await pool.query('DELETE FROM users WHERE 1=1');
   },
 };

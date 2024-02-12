@@ -1,7 +1,7 @@
 const RegisterUser = require('../RegisterUser');
 
 describe('RegisterUser entity', () => {
-  it('should throw an error if the user data does not contain the required property', () => {
+  test('it should throw an error if the user data does not contain the required property', () => {
     // Arrange
     const userData = {
       username: 'ayamjago',
@@ -13,7 +13,7 @@ describe('RegisterUser entity', () => {
       .toThrow('REGISTER_USER.MISSING_REQUIRED_PROPERTY');
   });
 
-  it('should throw an error if the user data does not meet the data type specifications', () => {
+  test('it should throw an error if the user data does not meet the data type specifications', () => {
     // Arrange
     const userData = {
       username: true,
@@ -26,7 +26,7 @@ describe('RegisterUser entity', () => {
       .toThrow('REGISTER_USER.INVALID_DATA_TYPE');
   });
 
-  it('should throw an error if the username exeeds 50 characters', () => {
+  test('it should throw an error if the username exeeds 50 characters', () => {
     // Arrange
     const userData = {
       username: 'ayamjagoayamjagoayamjagoayamjagoayamjagoayamjagoayamjago',
@@ -39,7 +39,7 @@ describe('RegisterUser entity', () => {
       .toThrow('REGISTER_USER.INVALID_USERNAME_LENGTH');
   });
 
-  it('should throw an error if the username is fewer than 6 characters', () => {
+  test('it should throw an error if the username is fewer than 6 characters', () => {
     // Arrange
     const userData = {
       username: 'abc',
@@ -52,7 +52,7 @@ describe('RegisterUser entity', () => {
       .toThrow('REGISTER_USER.INVALID_USERNAME_LENGTH');
   });
 
-  it('should throw an error if the username contains a restricted character', () => {
+  test('it should throw an error if the username contains a restricted character', () => {
     // Arrange
     const userData = {
       username: 'ayam jago',
@@ -65,7 +65,7 @@ describe('RegisterUser entity', () => {
       .toThrow('REGISTER_USER.INVALID_USERNAME_FORMAT');
   });
 
-  it('should throw an error if the password is fewer than 8 characters', () => {
+  test('it should throw an error if the password is fewer than 8 characters', () => {
     // Arrange
     const userData = {
       username: 'ayamjago',
@@ -78,7 +78,7 @@ describe('RegisterUser entity', () => {
       .toThrow('REGISTER_USER.INVALID_PASSWORD_LENGTH');
   });
 
-  it('should create a register user obejct correctly', () => {
+  test('it should create a register user obejct correctly', () => {
     // Arrange
     const userData = {
       username: 'ayamjago',
