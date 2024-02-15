@@ -16,11 +16,11 @@ DomainErrorTranslator.directories = {
   'USER_LOGIN.MISSING_REQUIRED_PROPERTY': new InvariantError('harus mengirimkan username dan password'),
   'USER_LOGIN.INVALID_DATA_TYPE': new InvariantError('username dan password harus string'),
 
-  'REFRESH_AUTHENTICATION_USE_CASE.MISSING_REFRESH_TOKEN': new InvariantError('harus mengirimkan token refresh'),
+  'REFRESH_AUTHENTICATION_USE_CASE.MISSING_REQUIRED_PROPERTY': new InvariantError('harus mengirimkan token refresh'),
   'REFRESH_AUTHENTICATION_USE_CASE.INVALID_DATA_TYPE': new InvariantError('refresh token harus string'),
 
-  'DELETE_AUTHENTICATION_USE_CASE.MISSING_REFRESH_TOKEN': new InvariantError('harus mengirimkan token refresh'),
-  'DELETE_AUTHENTICATION_USE_CASE.INVALID_DATA_TYPE': new InvariantError('refresh token harus string'),
+  'LOGOUT_USE_CASE.MISSING_REQUIRED_PROPERTY': new InvariantError('harus mengirimkan token refresh'),
+  'LOGOUT_USE_CASE.INVALID_DATA_TYPE': new InvariantError('refresh token harus string'),
 };
 
 module.exports = DomainErrorTranslator;
