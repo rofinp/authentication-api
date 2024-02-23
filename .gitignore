@@ -6,3 +6,4 @@ coverage
 .env
 auth-api-app-server.pem
 garuda-forumapi.pem
+ap-southeast-3-bundle.pem
