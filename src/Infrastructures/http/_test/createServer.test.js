@@ -53,6 +53,6 @@ describe('when GET /', () => {
     // Assert
     const responseJson = JSON.parse(response.payload);
     expect(response).toHaveProperty('statusCode', 200);
-    expect(responseJson).toHaveProperty('value', 'hello world');
+    expect(responseJson).toHaveProperty('value', 'Hello world!');
   });
 });
