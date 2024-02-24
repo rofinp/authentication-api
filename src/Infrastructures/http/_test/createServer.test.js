@@ -38,3 +38,21 @@ describe('HTTP server', () => {
     expect(responseJson).toHaveProperty('message', 'terjadi kegagalan pada server kami');
   });
 });
+
+describe('when GET /', () => {
+  test('it should return with a 200 status code and hello world', async () => {
+    // Arrange
+    const server = await createServer({});
+
+    // Action
+    const response = await server.inject({
+      method: 'GET',
+      url: '/',
+    });
+
+    // Assert
+    const responseJson = JSON.parse(response.payload);
+    expect(response).toHaveProperty('statusCode', 200);
+    expect(responseJson).toHaveProperty('value', 'Hello world!');
+  });
+});
